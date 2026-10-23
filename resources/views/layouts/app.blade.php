@@ -2,39 +2,36 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Спортивний клуб')</title>
-    <!-- Підключення Bootstrap CSS для гарного оформлення -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f5f6f8; color: #222; }
+        .topnav { background: #2d3748; padding: 14px 24px; }
+        .topnav a { color: #fff; text-decoration: none; margin-right: 20px; }
+        .topnav a:hover { text-decoration: underline; }
+        main { max-width: 900px; margin: 24px auto; background: #fff; padding: 24px; border-radius: 6px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { text-align: left; padding: 8px; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f7fafc; }
+        label { display: block; margin-top: 12px; }
+        input, select { padding: 6px; width: 300px; }
+        button { padding: 6px 14px; margin-top: 12px; cursor: pointer; }
+        .error { color: #c53030; margin: 4px 0 0; }
+        .inline { display: inline; }
+
+        .pagination { display: flex; list-style: none; padding: 0; gap: 6px; }
+        .pagination li a, .pagination li span { display: block; padding: 6px 12px; border: 1px solid #cbd5e0; text-decoration: none; color: #2d3748; border-radius: 4px; }
+        .pagination li.active span { background: #2d3748; color: #fff; }
+        .pagination li.disabled span { color: #a0aec0; }
+    </style>
 </head>
 <body>
-<!-- Головне меню сайту -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="{{ route('club.index') }}">СК "Олімп"</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('club.index') }}">Головна</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('club.contact') }}">Записатися</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<nav class="topnav">
+    <a href="{{ route('home') }}">Головна</a>
+    <a href="{{ route('players.index') }}">Гравці</a>
 </nav>
-
-<!-- Основний контент сторінки -->
-<main class="container">
+<main>
     @yield('content')
 </main>
-
-<!-- Футер -->
-<footer class="text-center mt-5 py-4 bg-light text-muted border-top">
-    <div class="container">
-        <p>&copy; 2026 Спортивний клуб. Усі права захищені.</p>
-    </div>
-</footer>
 </body>
 </html>
